@@ -5,11 +5,11 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  color: #252525;
-  background-color: #252525;
+  /* color: #252525;
+  background-color: #252525; */
 }
 
-button {
+.btn {
   font: inherit;
   cursor: pointer;
   background-color: #3c0080;
@@ -19,8 +19,17 @@ button {
   border-radius: 6px;
 }
 
-button:hover,
-button:active {
+.btn:hover,
+.btn:active {
   background-color: #5b14ac;
   border-color: #5b14ac;
+}
+
+.btn-disabled {
+  background-color: #ff0000d1;
+  color: #fff; 
+  cursor: not-allowed;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0.5rem;
 }
