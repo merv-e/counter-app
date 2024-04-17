@@ -2,7 +2,7 @@ import { useState } from "react";
 import classes from "./Auth.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {login} from '../features/authenticationSlice/authSlice'
+import { login } from "../features/authenticationSlice/authSlice";
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Auth = () => {
   const [userPw, setUserPw] = useState("");
 
   const handleLogin = () => {
-    dispatch(login())
+    dispatch(login());
     console.log("Login is successful!");
   };
 
@@ -26,12 +26,12 @@ const Auth = () => {
     if (validEmail && validPassword) {
       setIsBtnDisabled(false);
     } else setIsBtnDisabled(true);
-  }, [validEmail, validPassword]); 
+  }, [validEmail, validPassword]);
 
   return (
     <main className={classes.auth}>
       <section>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className={classes.control}>
             <label htmlFor="email">Email</label>
             <input
@@ -50,11 +50,7 @@ const Auth = () => {
               onChange={(e) => setUserPw(e.target.value)}
             />
           </div>
-          <button
-            onClick={handleLogin}
-            //  disabled={!validEmail && !validPassword}
-            className={isBtnDisabled ? "btn-disabled" : "btn"}
-          >
+          <button className={isBtnDisabled ? "btn-disabled" : "btn"}>
             Login
           </button>
         </form>
