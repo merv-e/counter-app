@@ -1,9 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./Header.module.css";
+import {logout} from '../features/authenticationSlice/authSlice'
 
 const Header = () => {
   const isUserLoggedIn = useSelector((state) => state.auth.auth);
   console.log(isUserLoggedIn);
+
+  const dispatch = useDispatch();
+
+  //LOGOUT
+
 
   return (
     <header className={classes.header}>
@@ -17,8 +23,8 @@ const Header = () => {
             <a href="/">My Sales</a>
           </li>
           <li>
-            {/* onClick functionality can be added to the latter buttons. */}
-            {isUserLoggedIn ? <button>Logout</button> : <button>Login</button>}
+            {/* onClick functionality can be added to login button as well, but there is no seperate page for that yet. */}
+            {isUserLoggedIn ? <button onClick={() => dispatch(logout())}>Logout</button> : <button>Login</button>}
           </li>
         </ul>
       </nav>
